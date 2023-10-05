@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-    
     <title>Añadir Equipo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,51 +12,72 @@
     <link type="text/css" rel="stylesheet" href="añadirProps.css">
 </head>
 <body>
-    <h2>Añadir nuevo equipo</h2>
-    <form role="form">
-        <div class="form-group">
+    <div class="container espacio">
+        <h2 style="text-align: center">Añadir nuevo equipo</h2>
+        <div class="nombre">
             <label for="nombreEquipo">Nombre del equipo:</label>
             <input type="nombreEquipo" class="form-control" id="email" placeholder="Introduzca el nombre del equipo">
         </div>
-    </form>
-    <div class="input-group espacio">
-        <span class="input-group-text">Descripción</span>
-        <textarea class="form-control" aria-label="Descripción" rows="3"></textarea>
-    </div>
-    <form class="row g-3 espacio">
-    <div class="col-md-6">
-        <label for="inputCity" class="form-label">Estadio</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="col-md-3">
-        <label for="inputCity" class="form-label">Año de creación</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="col-md-3">
-        <label for="inputCity" class="form-label">Número de títulos</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-    </form>
-    <div class="valorPlantilla espacio">
-        <label for="valor">Valor de la plantilla:</label>
-        <input type="range" id="valor" value="0" min="0" max="1000000000" step="1000000" oninput="this.nextElementSibling.value = this.value">
-        <output id="outrange" name="outrange" for="valor">0</output>$
-    </div>
-    <div class="mb-3 espacio">
-        <label for="escudo" class="form-label">Escudo del equipo:</label>
-        <input class="form-control" type="file" id="escudo">
-    </div>
-        <div class="d-block md-3">
-            <button class="btn btn-primary">Guardar</button>
-        </div>
-        <div class="d-block md-3">
-            <button class="btn btn-danger">Cancelar</button>
-        </div>
-    <div class="input-group espacio">
-        <span class="input-group-text">Nombre | Edad | Valor</span>
-        <input type="text" aria-label="First name" class="form-control">
-        <input type="text" aria-label="Last name" class="form-control">
-        <input type="text" aria-label="a" class="form-control">
-      </div>
 
+        <div class="input-group espacio">
+            <span class="input-group-text">Descripción</span>
+            <textarea class="form-control" aria-label="Descripción" rows="3"></textarea>
+        </div>
+
+        <div class="row espacio">
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Estadio</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-3">
+                <label for="inputCity" class="form-label">Año de creación</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-3">
+                <label for="inputCity" class="form-label">Número de títulos</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+        </div>
+
+        <div class="row espacio">
+        <div class="Estilo col-md-6 espacio">
+            <select class="selectEstilo" aria-label="Estilo">
+                <option selected>Estilo de juego</option>
+                <option value="1">Ofensivo</option>
+                <option value="2">Defensivo</option>
+                <option value="3">Posesión</option>
+                <option value="4">Contraataque</option>
+                <option value="5">Juego por las bandas</option>
+            </select>
+        </div>
+
+        <div class="check col-md-6 espacio">
+            <input class="form-check-input" type="checkbox" value="" id="check">
+            <label class="form-check-label" for="check">Participación en la Champions esta temporada</label>
+        </div>
+        </div>
+        <div class="valorPlantilla espacio">
+            <label for="valor">Valor de la plantilla:</label>
+            <input type="range" id="valor" value="0" min="0" max="1000000000" step="1000000" oninput="this.nextElementSibling.value = this.value">
+            <output id="outrange" name="outrange" for="valor">0</output>$
+        </div>
+        <div class="mb-3 espacio">
+            <label for="escudo" class="form-label">Escudo del equipo:</label>
+            <input class="form-control" type="file" id="escudo">
+        </div>
+        <div class = "row align-items-center">
+            <div class="guardar col-md-6 text-center">
+                <button class="btn btn-primary">Guardar</button>
+            </div>
+            <div class="cancelar col-md-6 text-center">
+                <button class="btn btn-danger">Cancelar</button>
+            </div>
+        </div>
+        <div class="input-group espacio">
+            <span class="input-group-text">Nombre | Edad | Valor</span>
+            <input type="text" aria-label="First name" class="form-control">
+            <input type="text" aria-label="Last name" class="form-control">
+            <input type="text" aria-label="a" class="form-control">
+        </div>
+    </div>
 </body>
