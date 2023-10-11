@@ -1,8 +1,9 @@
 .titulo {
-    width: 460px;
-    font-size: 100px;
+    width: 26%;
+    font-size: 600%;
     margin-top: 50px;
-    margin-left: 700px;
+    margin-left: 36%;
+    margin-right: 300%;
     color: rgb(230, 24, 89);
     border-radius: 5px;
     border: 3px solid rgb(114, 110, 110);
@@ -47,5 +48,5 @@
   
   .crear {
     margin-left: 0%;
-    margin-bottom: 0%;
+    margin-bottom: 300px;
   }
