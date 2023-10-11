@@ -12,6 +12,26 @@
     <link type="text/css"
     rel="stylesheet"
     href="properties.css" />
+    <style>
+        body {
+          background-color: #7e7e7e; /* Color de fondo para fuera del contenedor */
+        }
+        .container {
+          width: 50%; /* Ejemplo de estilos para el contenedor */
+          margin: 0 auto; /* Centrar el contenedor */
+          background-color: #e4e4e4; /* Color de fondo para el contenedor */
+          padding: 20px; /* Relleno dentro del contenedor */
+        }
+        .container2 {
+          width: 70%; /* Ejemplo de estilos para el contenedor */
+          margin: 0 auto; /* Centrar el contenedor */
+          background-color: #e4e4e4; /* Color de fondo para el contenedor */
+          padding: 20px; /* Relleno dentro del contenedor */
+        }
+        .table {
+      background-color: #393939; /* Cambia este color a tu preferencia */
+    }
+      </style>
 </head>
 
 <body>
@@ -22,10 +42,9 @@
                 <img src="Logo.png">
             </div>
             <div class="col-md-4">
-                <h1>Rear de  madri</h1>
+                <h1>Real Madrid</h1>
                 <p>Presidido por don Floper y cansado de jugar en la misma liga mediocre que el Negreira FC, proponen organizar una competición de verdad donde no haya organizaciones criminales (UEFA y FIFA) llevándoselo muerto.</p>
                 <table class="table table-bordered">
-                   
                     <tbody>
                         <tr>
                             <td>Año de creación</td>
@@ -45,13 +64,17 @@
                         <tr>
                             <td>Estadio</td>
                             <td>Santiago Bernabeu</td>
+                        </tr>
+                        <tr>
+                            <td>Estilo de juego</td>
+                            <td>Ofensivo</td>
                             
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="col-md-4">
-                <div class="d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex flex-column ">
                     <div class="d-block mb-3">
                         <button class="btn btn-primary">Volver</button>
                       </div>
@@ -107,6 +130,74 @@
             </tbody>
         </table>
         <button type="button" class="btn btn-primary btn-block">Añadir jugador</button>
+    </div>
+    <div class="container2 mt-5">
+        <h4 style="text-align: center">Añadir jugador</h2>
+        <div class="nombre">
+            <label for="nombreEquipo">Nombre:</label>
+            <input type="nombreEquipo" class="form-control" id="email" placeholder="Introduzca el nombre del equipo">
+        </div>
+
+        <div class="input-group espacio">
+            <span class="input-group-text">Nacionalidad</span>
+            <textarea class="form-control" aria-label="Descripción" rows="3"></textarea>
+        </div>
+
+        <div class="row espacio">
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Estadio</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-3">
+                <label for="inputCity" class="form-label">Año de creación</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-3">
+                <label for="inputCity" class="form-label">Número de títulos</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+        </div>
+
+        <div class="row espacio">
+        <div class="Estilo col-md-6 espacio">
+            <select class="selectEstilo" aria-label="Estilo">
+                <option selected>Estilo de juego</option>
+                <option value="1">Ofensivo</option>
+                <option value="2">Defensivo</option>
+                <option value="3">Posesión</option>
+                <option value="4">Contraataque</option>
+                <option value="5">Juego por las bandas</option>
+            </select>
+        </div>
+
+        <div class="check col-md-6 espacio">
+            <input class="form-check-input" type="checkbox" value="" id="check">
+            <label class="form-check-label" for="check">Participación en la Champions esta temporada</label>
+        </div>
+        </div>
+        <div class="valorPlantilla espacio">
+            <label for="valor">Valor de la plantilla:</label>
+            <input type="range" id="valor" value="0" min="0" max="1000000000" step="1000000" oninput="this.nextElementSibling.value = this.value">
+            <output id="outrange" name="outrange" for="valor">0</output>$
+        </div>
+        <div class="mb-3 espacio">
+            <label for="escudo" class="form-label">Escudo del equipo:</label>
+            <input class="form-control" type="file" id="escudo">
+        </div>
+        <div class = "row align-items-center">
+            <div class="guardar col-md-6 text-center">
+                <button class="btn btn-primary">Guardar</button>
+            </div>
+            <div class="cancelar col-md-6 text-center">
+                <button class="btn btn-danger">Cancelar</button>
+            </div>
+        </div>
+        <div class="input-group espacio">
+            <span class="input-group-text">Nombre | Edad | Valor</span>
+            <input type="text" aria-label="First name" class="form-control">
+            <input type="text" aria-label="Last name" class="form-control">
+            <input type="text" aria-label="a" class="form-control">
+        </div>
     </div>
 </body>
 
