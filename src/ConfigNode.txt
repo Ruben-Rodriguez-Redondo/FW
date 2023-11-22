@@ -1,0 +1,9 @@
+Instalar usando cmd en windows:
+
+    npm install -g nodemon
+    npm install express
+    npm install mustache-express
+
+Ejercutaren la terminal (bash) usando: 
+
+    nodemon ./src/app.js
