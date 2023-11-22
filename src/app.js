@@ -6,7 +6,7 @@ import anuncioRouter from './anuncioRouter.js';
 
 const app = express();
 
-app.set('views', __dirname + '/../views');
+app.set('views', __dirname + '/../Htmls');
 app.set('view engine', 'html');
 app.engine('html', mustacheExpress(), ".html");
 
