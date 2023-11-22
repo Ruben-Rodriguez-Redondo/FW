@@ -1,2 +1,9 @@
 # FW
-Repositorio para las prácticas de fundamentos web
+Top Champions Titles
+Miembros del grupo:
+  -Pedro Cristino Moreno
+  -Rubén Rodríguez Redondo
+  -Marcos del Valle Hontanar
+
+https://github.com/Ruben-Rodriguez-Redondo/FW/tree/paginaprincipal2
+
