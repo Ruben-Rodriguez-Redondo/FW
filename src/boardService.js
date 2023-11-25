@@ -11,11 +11,11 @@ function cargarSubElementos(id){
            noms = ["Thibaut Courtois", "Kepa Arrizabalaga", "Andriy Lunin", "Éder Militao", "Dávid Alaba"] 
             ages = [31,29,24,25,31]
             values = [45,18,5,70,40]
-            break;
+            break; 
         default:
           console.log("Opción no reconocida");
     }
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < noms.length; i++) {
         let subElemento = {
             nombre : noms[i],
             edad : ages[i],
