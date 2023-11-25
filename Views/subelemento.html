@@ -27,35 +27,35 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
-                <img src="Logo.png">
+                <img src={{equipo.escudo}}>
             </div>
             <div class="col-md-4">
-                <h1>Real Madrid</h1>
-                <p>Presidido por don Floper y cansado de jugar en la misma liga mediocre que el Negreira FC, proponen organizar una competición de verdad donde no haya organizaciones criminales (UEFA y FIFA) llevándoselo muerto.</p>
+                <h1>{{equipo.nombreEquipo}}</h1>
+                <p>{{equipo.descripcion}}</p>
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
                             <td>Año de creación</td>
-                            <td>1902</td>
+                            <td>{{equipo.fCreacion}}</td>
                             
                         </tr>
                         <tr>
                             <td>Nº de títulos</td>
-                            <td>97</td>
+                            <td>{{equipo.titulos}}</td>
                           
                         </tr>
                         <tr>
                             <td>Valor de plantilla</td>
-                            <td>991.000.000</td>
+                            <td>{{equipo.valor}}</td>
                             
                         </tr>
                         <tr>
                             <td>Estadio</td>
-                            <td>Santiago Bernabeu</td>
+                            <td>{{equipo.estadio}}</td>
                         </tr>
                         <tr>
                             <td>Estilo de juego</td>
-                            <td>Ofensivo</td>
+                            <td>{{equipo.estilo}}</td>
                             
                         </tr>
                     </tbody>
@@ -92,30 +92,13 @@
                 </tr>
             </thead>
             <tbody>
+                {{#equipo.subElementos}}
                 <tr>
-                    <td>Thibaut Courtois</td>
-                    <td>31</td>
-                    <td>45 millones</td>
+                    <td>{{nombre}}</td>
+                    <td>{{edad}}</td>
+                    <td>{{valor}} Millones</td>
                 </tr>
-                <tr>
-                    <td>Kepa Arrizabalaga</td>
-                    <td>29</td>
-                    <td>18 millones</td>
-                </tr>
-                <tr>
-                    <td>Andriy Lunin</td>
-                    <td>24</td>
-                    <td>5 millones</td>
-                </tr>
-                <tr>
-                    <td>Éder Militao</td>
-                    <td>25</td>
-                    <td>70 millones</td>
-                </tr>
-                <tr>
-                    <td>David Alaba</td>
-                    <td>31</td>
-                    <td>40 millones</td>
+                {{/equipo.subElementos}}
                 </tr>
             </tbody>
         </table>
@@ -123,23 +106,25 @@
     </div>
     <div class="container2 mt-5 mb-5">
         <h4 style="text-align: center">Añadir jugador</h2>
-            <div class="input-group espacio">
+            <form action="/nuevoSub" method="post">
                 <div class="input-group espacio">
-                    <span class="input-group-text">Introduzca los atributos</span>
-                    <input type="text" aria-label="First name" class="form-control" placeholder="Nombre">
-                    <input type="text" aria-label="Last name" class="form-control" placeholder="Edad">
-                    <input type="text" aria-label="a" class="form-control" placeholder="Valor">
+                    <div class="input-group espacio">
+                        <span class="input-group-text">Introduzca los atributos</span>
+                        <input type="text" aria-label="First name" class="form-control" placeholder="Nombre" name="name">
+                        <input type="text" aria-label="Last name" class="form-control" placeholder="Edad" name = "age">
+                        <input type="text" aria-label="a" class="form-control" placeholder="Valor" name="value">
+                        <input type="hidden" name="id" value={{id}}>
+                </div>
+            <div class = "row align-items-center mt-2">
+                <div class="guardar col-md-6 text-center">
+                    <button class="btn3 btn-primary" type="submit"> Guardar</button>
+                </div>
+                <div class="cancelar col-md-6 text-center">
+                    <button class="btn4 btn-danger">Cancelar</button>
+                </div>
             </div>
-        <div class = "row align-items-center mt-2">
-            <div class="guardar col-md-6 text-center">
-                <button class="btn3 btn-primary">Guardar</button>
-            </div>
-            <div class="cancelar col-md-6 text-center">
-                <button class="btn4 btn-danger">Cancelar</button>
-            </div>
+        </form>
         </div>
-       
-    </div>
 </body>
 
 </html>
