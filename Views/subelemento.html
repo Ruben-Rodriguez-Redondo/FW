@@ -69,10 +69,13 @@
                     
                       </div>
                       <div class="d-block mb-3">
-                        <button class="btn2 ">Editar</button>
+                        <a href="/paginaEditar.html?id={{id}}"><button class="btn2 ">Editar</button></a>
                       </div>
                       <div class="d-block">
-                        <button class="btn2 ">Borrar</button>
+                        <form action="/borrar" method = "post">
+                            <input type="hidden" name="id" value={{id}}>
+                            <button class="btn2 " type="submit">Borrar</button>
+                        </form>
                       </div>
                   </div>
                

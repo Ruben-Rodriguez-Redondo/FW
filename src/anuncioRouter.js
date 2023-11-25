@@ -66,5 +66,19 @@ router.post("/nuevoSub",(req, res) => {
         mensaje: mensaje
     });
 });
+router.post("/borrar",(req, res) => {
+    
+    boardService.deleteEquipo(parseInt(req.body.id))
+    res.render('paginaPrincipal', { 
+        equipos: boardService.getEquipos()
+    });
+});
 
+router.get('/paginaEditar.html', (req, res) => {
+    let id = parseInt(req.query.id)
+    res.render('paginaEditar', { 
+        equipo: boardService.getEquipo(id),
+        id:id
+    });
+});
 export default router;
