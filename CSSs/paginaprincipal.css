@@ -12,6 +12,7 @@ body {
   background-color: rgb(193, 199, 195);
   margin-top: 20px;
   margin-bottom: 20px;
+  max-width: fit-content;
 
 }
 
