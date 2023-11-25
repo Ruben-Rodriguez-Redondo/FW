@@ -12,6 +12,16 @@ function cargarSubElementos(id){
             ages = [31,29,24,25,31]
             values = [45,18,5,70,40]
             break; 
+        case 1:
+            noms = ["Thibaut Courtois", "Kepa Arrizabalaga", "Andriy Lunin", "Éder Militao", "Dávid Alaba"] 
+            ages = [31,29,24,25,31]
+            values = [45,18,5,70,40]
+            break;
+        case 2:
+            noms = ["Thibaut Courtois", "Kepa Arrizabalaga", "Andriy Lunin", "Éder Militao", "Dávid Alaba"] 
+            ages = [31,29,24,25,31]
+            values = [45,18,5,70,40]
+            break;        
         default:
           console.log("Opción no reconocida");
     }
@@ -44,7 +54,7 @@ function cargarElemento(id){
           desc = "Descripción del real madrid";
           year = 1902
           value = 991000000
-          ntitulos = 97
+          ntitulos = 14
           stadium = "Santiago Bernabeu"
           style = "Ofensivo"
           sub=cargarSubElementos(id)
@@ -55,13 +65,22 @@ function cargarElemento(id){
             desc = "Descripción del milan";
             year = 1922
             value = 991
-            ntitulos = 97
+            ntitulos = 7
             stadium = "San Siro"
             style = "Catenaccio"
             sub=cargarSubElementos(id)
             break;
         case 2:
-          console.log("Seleccionaste la opción 3");
+            foto = "Ajax.png",
+            nom = "AC.Milan";
+            desc = "Descripción del milan";
+            year = 1922
+            value = 991
+            ntitulos = 7
+            stadium = "San Siro"
+            style = "Catenaccio"
+            sub=cargarSubElementos(id)
+            break;
           break;
         default:
           console.log("Opción no reconocida");
@@ -81,7 +100,7 @@ function cargarElemento(id){
 }
 function cargarDatos(){
     //aqui hay que cargar en el mapa los valores de cada elemento
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
         equipos.set(i,cargarElemento(i))
         nextId+=1
       }
@@ -92,8 +111,8 @@ function cargarDatos(){
 cargarDatos()
 export function addEquipo(equipo) {
     let id = nextId;
-    equipo.id = id.toString();
-    equipos.set(equipo.id, equipo);
+    let sId = id.toString();
+    equipos.set(sId, equipo);
     nextId++;
 }
 
@@ -101,9 +120,15 @@ export function deleteEquipo(id){
     equipos.delete(id);
 }
 
-export function getEquipos(){
-    return [...equipos.values()];
+export function getKeys(){
+    
+    return [...equipos.keys()] ;
 }
+export function getEquipos(){
+    
+    return [...equipos.values()] ;
+}
+
 
 export function getEquipo(id){
     return equipos.get(id);

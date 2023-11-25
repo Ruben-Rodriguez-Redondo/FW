@@ -1,10 +1,11 @@
-import { getEquipos } from "./boardService.js";
-      
-
-function generarHTML() {
+import { getEquipos, getKeys } from "./boardService.js";
+  
+export function generarHTML (){
         document.addEventListener('DOMContentLoaded', function() {
        
             let equipos = getEquipos();
+            let claves = getKeys();
+           
    
             var contenedor = document.getElementById("contenedorPrincipal");
                 
@@ -29,18 +30,19 @@ function generarHTML() {
                         item.className = 'itemR';
 
                         var enlace = document.createElement('a');
-                        enlace.href = 'subelemento.html';
+                        enlace.className ='equipo';
+                        enlace.href = 'subelemento.html'+'?id='+claves[i];
 
                         var img = document.createElement('img');
-                        img.src = equipos[i].enlace;
+                        img.src = equipos[i].escudo;
 
                         enlace.appendChild(img);
                         enlace.appendChild(document.createTextNode(equipos[i].nombreEquipo));
 
 
                         var enlace2 = document.createElement('a');
-                        enlace2.className = 'trofeo'
-                        enlace2.href = 'subelemento.html';
+                        enlace2.className = 'trofeo';
+                        enlace2.href = 'subelemento.html'+'?id='+claves[i];
 
                         var img2 = document.createElement('img');
                         img2.src = 'Trofeo.png';
@@ -48,13 +50,14 @@ function generarHTML() {
                         enlace2.appendChild(document.createTextNode(equipos[i].titulos));
 
                 
-                        item.appendChild(enlace2); 
+                        
                         item.appendChild(enlace);
-
+                        item.appendChild(enlace2); 
+                        
                         columna.appendChild(item);
                         fila.appendChild(columna);
                         
                 contenedor.appendChild(fila);
                 }
         });
-       }
+    }

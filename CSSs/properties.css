@@ -27,19 +27,7 @@ img{
       background-color: #e4e4e4; /* Color de fondo para el contenedor */
       padding: 20px; /* Relleno dentro del contenedor */
     }
-    .container3{
-      width: 50%; /* Ejemplo de estilos para el contenedor */
-      margin: 0 auto; /* Centrar el contenedor */
-      background-color: #e4e4e4; /* Color de fondo para el contenedor */
-      padding: 20px; /* Relleno dentro del contenedor */
     
-    }
-    .container4{
-      width: 17%; /* Ejemplo de estilos para el contenedor */
-      margin: 0 auto; /* Centrar el contenedor */
-      background-color: #7e7e7e; /* Color de fondo para el contenedor */
-      padding: 20px; /* Relleno dentro del contenedor */
-    }
     body {
       background-color: #7e7e7e; /* Color de fondo para fuera del contenedor */
     }

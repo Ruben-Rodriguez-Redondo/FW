@@ -8,99 +8,30 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!--<script type="module" scr="./generarPagina.js"> </script>-->
 <link type="text/css" rel="stylesheet" href="paginaprincipal.css" />
-<link type="text/css" rel="stylesheet" href="properties.css" />
-<script type="module" src="GenerarPagina.js"></script>
+
 
 <body>
-    <div class="containter">
-        <div class="row">
-            <p class="titulo">Champion</p>
+    
+    
+       
+        <div class ="container ">
+            <h1 style="text-align: center;">Champions</h1>
         </div>
-    </div>
+        </div>
+        </div>
+  
+    
 
-
-
-    <div class="container3 mt-5" , id="contenedorPrincipal">
+    <div class="container3" , id="contenedorPrincipal">
         {{^equipos}}
         <p>No hay ningún equipo</p>
         {{/equipos}}
 
-        <!--<script> generarHTML();</script> -->
+        <script type ="module"> import {generarHTML} from "./generarPagina.js"; generarHTML();  </script> 
 
-        <script type=module> import { getEquipos } from "./boardService.js";
-        
-        document.addEventListener('DOMContentLoaded', function() {
        
-            let equipos = getEquipos();
-   
-            var contenedor = document.getElementById("contenedorPrincipal");
-                
-
-                for (var i = 0; i<equipos.length; i++){
-                
-                    if (i%2===0) {
-                        var fila = document.createElement('div');
-                        fila.className = 'row'; 
-                    }
-                    var suma = 2;
-                    if ((i === (equipos.lenght-1)) && (equipos.length%2 !==0)){
-                        suma = 1;
-                    }
-                                
-                        var columna = document.createElement('div');
-                        columna.className = 'col-md-6';
-
-                
-
-                        var item = document.createElement('div');
-                        item.className = 'itemR';
-
-                        var enlace = document.createElement('a');
-                        enlace.href = 'subelemento.html';
-
-                        var img = document.createElement('img');
-                        img.src = equipos[i].enlace;
-
-                        enlace.appendChild(img);
-                        enlace.appendChild(document.createTextNode(equipos[i].nombreEquipo));
-
-
-                        var enlace2 = document.createElement('a');
-                        enlace2.className = 'trofeo'
-                        enlace2.href = 'subelemento.html';
-
-                        var img2 = document.createElement('img');
-                        img2.src = 'Trofeo.png';
-                        enlace2.appendChild(img2);
-                        enlace2.appendChild(document.createTextNode(equipos[i].titulos));
-
-                
-                        item.appendChild(enlace2); 
-                        item.appendChild(enlace);
-
-                        columna.appendChild(item);
-                        fila.appendChild(columna);
-                        
-                contenedor.appendChild(fila);
-                }
-        });
-        </script>
-
-
-
-
-        <!--{{#equipos}} 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="itemR">
-                    <a href="subelemento.html"><img src="RM.png" /> {{nombreEquipo}} </a> 
-                    <a class="trofeo" href="subelemento.html"><img src="Trofeo.png" /> 14 </a> 
-                </div>
-            </div>       
-        </div>
-    {{/equipos}} -->
-
     </div>
 
     <div class="container4">
@@ -111,23 +42,6 @@
         </div>
     </div>
 
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="itemR">
-                <a href="/subelemento.html?id=0"><img src="RM.png" /> {{nombreEquipo}} </a> 
-                <a class="trofeo" href="/subelemento.html?id=0"><img src="Trofeo.png" /> 14 </a> 
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="itemR">
-                <a href="/subelemento.html?id=1"><img src="Milan.png" /> {{nombreEquipo}} </a> 
-                <a class="trofeo" href="/subelemento.html?id=1"><img src="Trofeo.png" /> 7 </a> 
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
