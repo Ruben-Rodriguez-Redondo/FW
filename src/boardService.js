@@ -108,7 +108,7 @@ function cargarDatos(){
 }
 
 
-cargarDatos()
+cargarDatos();
 export function addEquipo(equipo) {
     let id = nextId;
     let sId = id.toString();
@@ -125,6 +125,7 @@ export function getKeys(){
     return [...equipos.keys()] ;
 }
 export function getEquipos(){
+    
     
     return [...equipos.values()] ;
 }

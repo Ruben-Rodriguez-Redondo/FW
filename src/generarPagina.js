@@ -3,8 +3,8 @@ import { getEquipos, getKeys } from "./boardService.js";
 export function generarHTML (){
         document.addEventListener('DOMContentLoaded', function() {
        
-            let equipos = getEquipos();
-            let claves = getKeys();
+            var equipos = getEquipos();
+            var claves = getKeys();
            
    
             var contenedor = document.getElementById("contenedorPrincipal");
