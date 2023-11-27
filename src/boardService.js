@@ -125,6 +125,7 @@ export function getKeys(){
     
     return [...equipos.keys()] ;
 }
+
 export function getEquipos(){
        
     return [...equipos.values()] ;

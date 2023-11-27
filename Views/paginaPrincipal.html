@@ -8,10 +8,33 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<!--<script type="module" scr="./generarPagina.js"> </script>-->
+
 <link type="text/css" rel="stylesheet" href="paginaprincipal.css" />
 
+<style>
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #d4d4d4;
 
+      width: 70%;
+      height: auto;
+      margin: auto; 
+
+      padding: 20px;
+      align-self: center;
+     max-width: fit-content;
+    }
+
+    .fila {
+       width: 50%;
+       flex: 0 0 auto;
+      min-width: 150px; /* Cada fila ocupa la mitad del contenedor */
+      box-sizing: border-box;
+      
+      padding: 10px;
+    }
+  </style>
 <body>
     
     
@@ -24,27 +47,26 @@
   
         
 
-
-    <div class="container3" , id="contenedorPrincipal">       
-        <!--<script type ="module"> import {generarHTML} from "./generarPagina.js"; generarHTML();   </script> -->
+    
+    <div class="contenedor">       
+        
 
         {{^equipos}}
         <div class="vacio">
             NO HAY NINGUN EQUIPO
         </div>
-        {{/equipos}}
-
-        
-        {{#equipos}} 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="itemR">
-                    <a class="equipo" href="subelemento.html?id={{identificador}}"><img src="{{escudo}}"/> {{nombreEquipo}} </a> 
-                    <a class="trofeo" href="subelemento.html?id={{identificador}}" ><img src="Trofeo.png" /> {{titulos}} </a> 
-                </div>
-            </div>       
-        </div>
         {{/equipos}} 
+
+        {{#equipos}}
+        <div class="fila">
+            <div class="itemR" onclick="window.location.href='subelemento.html?id={{identificador}}';" style="cursor: pointer;">
+                <a class="equipo"><img src="{{escudo}}"/> Real Madrid</a> 
+                <a class="trofeo"><img src="Trofeo.png" /> 14 </a> 
+            </div>
+            
+        </div>
+       {{/equipos}}
+
        
     </div>
 
