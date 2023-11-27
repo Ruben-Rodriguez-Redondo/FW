@@ -38,6 +38,16 @@ body {
     
     padding: 20px;
     align-self: center;
+   
+    
+  }
+
+
+  .vacio {
+    text-align: center;
+    color: black;
+    font-size: large;
+   
   }
 
 

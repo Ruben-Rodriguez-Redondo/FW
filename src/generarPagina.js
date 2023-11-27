@@ -2,12 +2,14 @@ import { getEquipos, getKeys } from "./boardService.js";
   
 export function generarHTML (){
         document.addEventListener('DOMContentLoaded', function() {
+            
        
-            var equipos = getEquipos();
-            var claves = getKeys();
+            var equipos = getEquipos(); // Se tendrán q cambiar por comunicación AJAX con el servidor
+            var claves = getKeys();//
            
    
             var contenedor = document.getElementById("contenedorPrincipal");
+           
                 
 
                 for (var i = 0; i<equipos.length; i++){

@@ -17,21 +17,34 @@
     
        
         <div class ="container ">
-            <h1 style="text-align: center;">Champions</h1>
-    
+            <h1 style="text-align: center;">Champions</h1>   
         </div>
        
        
   
-    
+        
 
-    <div class="container3" , id="contenedorPrincipal">
+
+    <div class="container3" , id="contenedorPrincipal">       
+        <!--<script type ="module"> import {generarHTML} from "./generarPagina.js"; generarHTML();   </script> -->
+
         {{^equipos}}
-        <p>No hay ningún equipo</p>
+        <div class="vacio">
+            NO HAY NINGUN EQUIPO
+        </div>
         {{/equipos}}
 
-        <script type ="module"> import {generarHTML} from "./generarPagina.js"; generarHTML();  </script> 
-
+        
+        {{#equipos}} 
+        <div class="row">
+            <div class="col-md-6">
+                <div class="itemR">
+                    <a class="equipo" href="subelemento.html?id={{identificador}}"><img src="{{escudo}}"/> {{nombreEquipo}} </a> 
+                    <a class="trofeo" href="subelemento.html?id={{identificador}}" ><img src="Trofeo.png" /> {{titulos}} </a> 
+                </div>
+            </div>       
+        </div>
+        {{/equipos}} 
        
     </div>
 

@@ -14,12 +14,12 @@ app.engine('html', mustacheExpress(), ".html");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+//app.use(express.json());
 app.use(express.static(__dirname + '/../ImagenesPNG'));
 app.use(express.static(__dirname + '/../CSSs'));
 app.use(express.static(__dirname + '/../Htmls'));
-app.use(express.static(__dirname + '/../src'));
-//app.use(express.static(__dirname + '/../src/generarPagina.js'));
+//app.use(express.static(__dirname + '/../src'));
+
 
 
 app.use('/', anuncioRouter);

@@ -1,5 +1,6 @@
 import express from 'express';
-import * as boardService from './boardService.js'
+import * as boardService from './boardService.js';
+
 
 const router = express.Router();
 
@@ -18,14 +19,19 @@ function validEntry(nombre,edad,valor){
     return 0
 }
 router.get('/', (req, res) => {
-
+    
+    
     res.render('paginaPrincipal', { 
         equipos: boardService.getEquipos()
+       
     });
+    
+   
 });
 
 router.get('/subelemento.html', (req, res) => {
     let id = parseInt(req.query.id)
+    
     res.render('subelemento', { 
         equipo: boardService.getEquipo(id),
         id:id

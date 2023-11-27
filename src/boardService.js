@@ -1,6 +1,6 @@
 const equipos = new Map();
 let nextId = 0;
-
+const numEquiposInicial = 3;
 function cargarSubElementos(id){
     let dev  = []
     let noms = []
@@ -81,7 +81,7 @@ function cargarElemento(id){
             style = "Catenaccio"
             sub=cargarSubElementos(id)
             break;
-          break;
+          
         default:
           console.log("Opción no reconocida");
     }
@@ -94,13 +94,14 @@ function cargarElemento(id){
         titulos: ntitulos,
         estadio: stadium,
         estilo: style,
-        subElementos: sub
+        subElementos: sub,
+        identificador:id
     }
     return elemento
 }
 function cargarDatos(){
     //aqui hay que cargar en el mapa los valores de cada elemento
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < numEquiposInicial; i++) {
         equipos.set(i,cargarElemento(i))
         nextId+=1
       }
@@ -125,8 +126,7 @@ export function getKeys(){
     return [...equipos.keys()] ;
 }
 export function getEquipos(){
-    
-    
+       
     return [...equipos.values()] ;
 }
 
