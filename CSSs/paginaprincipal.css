@@ -13,6 +13,7 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: fit-content;
+  min-width: fit-content;
 
 }
 
@@ -102,6 +103,7 @@ body {
     margin: 0 auto; /* Centrar el contenedor */
     background-color: #7e7e7e; /* Color de fondo para el contenedor */
     padding: 20px; /* Relleno dentro del contenedor */
+    min-width: fit-content;
   }
  
   .botonCrear {
