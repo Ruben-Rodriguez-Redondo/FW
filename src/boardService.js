@@ -132,7 +132,6 @@ export function addEquipo(equipo) {
             equipo.estilo = "Juego por las bandas";
             break;
     }
-    console.log(equipo.escudo);
     equipos.set(equipo.identificador, equipo);
     nextId++;
 }
