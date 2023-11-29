@@ -74,6 +74,13 @@ router.post("/nuevoSub",(req, res) => {
         mensaje: mensaje
     });
 });
+
+router.post("/subelemento/new",(req,res) => {
+    let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, subElementos } = req.body;
+    boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, subElementos });
+    res.render("savedTeam");
+});
+
 router.post("/borrar",(req, res) => {
     
     boardService.deleteEquipo(parseInt(req.body.id))

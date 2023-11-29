@@ -14,35 +14,36 @@
 
 <body>
     <div class="container2 mt-5">
+        <form action="subelemento/new" method="post">
         <h2 style="text-align: center">Añadir nuevo equipo</h2>
         <div class="nombre">
             <label for="nombreEquipo">Nombre del equipo:</label>
-            <input type="text" class="form-control" id="nombreEquipo" placeholder="Introduzca el nombre del equipo">
+            <input type="text" class="form-control" id="nombreEquipo" name="nombreEquipo" placeholder="Introduzca el nombre del equipo">
         </div>
 
         <div class="input-group espacio">
             <span class="input-group-text">Descripción</span>
-            <textarea class="form-control" aria-label="Descripción" rows="3"></textarea>
+            <textarea class="form-control" aria-label="descripcion" name="descripcion" rows="3"></textarea>
         </div>
 
         <div class="row espacio">
             <div class="col-md-4">
                 <label for="estadio" class="form-label">Estadio</label>
-                <input type="text" class="form-control" id="estadio">
+                <input type="text" class="form-control" id="estadio" name="estadio">
             </div>
             <div class="col-md-4">
                 <label for="año" class="form-label">Año de creación</label>
-                <input type="text" class="form-control" id="año">
+                <input type="text" class="form-control" id="fCreacion" name="fCreacion">
             </div>
             <div class="col-md-4">
                 <label for="titulos" class="form-label">Número de títulos</label>
-                <input type="text" class="form-control" id="titulos">
+                <input type="text" class="form-control" id="titulos" name="titulos">
             </div>
         </div>
 
         <div class="row espacio">
             <div class="Estilo col-md-6 espacio">
-                <select class="selectEstilo" aria-label="Estilo">
+                <select class="selectEstilo" name="estilo" aria-label="Estilo">
                     <option selected>Estilo de juego</option>
                     <option value="1">Ofensivo</option>
                     <option value="2">Defensivo</option>
@@ -59,22 +60,33 @@
         </div>
         <div class="valorPlantilla espacio">
             <label for="valor">Valor de la plantilla:</label>
-            <input type="range" id="valor" value="0" min="0" max="1000000000" step="1000000"
+            <input type="range" id="valor" name="valor" value="0" min="0" max="1000000000" step="1000000"
                 oninput="this.nextElementSibling.value = this.value">
             <output id="outrange" name="outrange" for="valor">0</output>$
         </div>
-        <div class="mb-3 espacio">
+        <!--<div class="mb-3 espacio">
             <label for="escudo" class="form-label">Escudo del equipo:</label>
             <input class="form-control" type="file" id="escudo">
+        </div>-->
+        <div class="input-group mb-3 espacio">
+            <span class="input-group-text" id="basic-addon1">Escudo del equipo:</span>
+            <input type="text" class="form-control" name="escudo" placeholder="Introduzca el link del escudo" aria-label="escudo" aria-describedby="basic-addon1">
         </div>
         <div class="row align-items-center">
             <div class="guardar col-md-6 text-center">
-                <button class="btn3 btn-primary">Guardar</button>
+                <button class="btn3 btn-primary" type="submit">Guardar</button>
             </div>
             <div class="cancelar col-md-6 text-center">
-                <a href="/"> <button class="btn4 btn-danger"> Cancelar</button> </a>
+                <button class="btn4 btn-danger" onclick="cancelar(event)">Cancelar</button>
             </div>
+            
+            <script>
+                function cancelar(event) {
+                    event.preventDefault(); // Evita el envío predeterminado del formulario
+                    window.location.href = '/'; // Redirige a la página principal
+                }
+            </script>
         </div>
-
+        </form>
     </div>
 </body>
