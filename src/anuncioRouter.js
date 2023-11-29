@@ -20,10 +20,12 @@ function validEntry(nombre,edad,valor){
 }
 router.get('/', (req, res) => {
     
-    
+    let [col1,col2,solitario] = boardService.getColumnas();
     res.render('paginaPrincipal', { 
-        equipos: boardService.getEquipos()
-       
+        col1,
+        col2,
+        solitario
+    
     });
     
    
@@ -75,8 +77,12 @@ router.post("/nuevoSub",(req, res) => {
 router.post("/borrar",(req, res) => {
     
     boardService.deleteEquipo(parseInt(req.body.id))
+    let [col1,col2,solitario] = boardService.getColumnas();
     res.render('paginaPrincipal', { 
-        equipos: boardService.getEquipos()
+        col1,
+        col2,
+        solitario
+    
     });
 });
 

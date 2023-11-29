@@ -72,7 +72,7 @@ function cargarElemento(id){
             break;
         case 2:
             foto = "Ajax.png",
-            nom = "AC.Milan";
+            nom = "Ajax";
             desc = "Descripción del milan";
             year = 1922
             value = 991
@@ -134,4 +134,26 @@ export function getEquipos(){
 
 export function getEquipo(id){
     return equipos.get(id);
+}
+
+
+export function getColumnas(){
+    let col1 = [];
+    let col2 = [];
+    let solitario = null;
+    let alternar =true;
+    let keys = getKeys();
+    if (keys.length % 2 !==0) {solitario = getEquipo(keys[keys.length-1]); keys.pop();}
+    for ( let key of keys) {
+        if (alternar) {
+            col1.push(getEquipo(key));
+        }
+        else {
+            col2.push(getEquipo(key));
+        }
+        alternar = !alternar;
+    }
+    if (keys.length % 2 !==0) solitario = getEquipo(keys[keys.length-1]);
+
+return  [col1,col2, solitario];
 }

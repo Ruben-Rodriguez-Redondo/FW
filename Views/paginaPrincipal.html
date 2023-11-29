@@ -28,23 +28,17 @@
       min-width: fit-content;
       
     
-     
+     justify-content: center;
      
      
     }
 
-    .fila {
-       width: 50%;
-       flex: 0 0 auto;
+    .col-md-6 {
+     width: 50%;
+     flex: 0 0 auto;
       min-width: 150px; /* Cada fila ocupa la mitad del contenedor */
       box-sizing: border-box;
-      padding: 10px;
-
-      
-      flex: auto; /* Esto hace que se estiren ocupando todo lo que puedan*/
-      
-    
-      
+      padding: 10px;     
     }
   </style>
 <body>
@@ -61,25 +55,44 @@
 
     
     <div class="contenedor">       
-        
 
-        {{^equipos}}
+       
+
+        {{^col1}}
+        {{^solitario}}
         <div class="vacio">
             NO HAY NINGUN EQUIPO
         </div>
-        {{/equipos}} 
+        {{/solitario}}
+        {{/col1}} 
 
-        {{#equipos}}
-        <div class="fila">
+        {{#col1}}
+        <div class = "col-md-6">       
+        <div class="itemR" onclick="window.location.href='subelemento.html?id={{identificador}}';" style="cursor: pointer;">
+            <a class="equipo"><img src="{{escudo}}"/> {{nombreEquipo}}</a> 
+            <a class="trofeo"><img src="Trofeo.png" /> {{titulos}} </a> 
+        </div>
+        </div>
+        {{/col1}}
+
+        {{#col2}}
+        <div class = "col-md-6">
+        <div class="itemR" onclick="window.location.href='subelemento.html?id={{identificador}}';" style="cursor: pointer;">
+            <a class="equipo"><img src="{{escudo}}"/> {{nombreEquipo}}</a> 
+            <a class="trofeo"><img src="Trofeo.png" /> {{titulos}} </a> 
+        </div>      
+        </div>
+        {{/col2}}
+
+        {{#solitario}}
+        <div class="col-md-6">
             <div class="itemR" onclick="window.location.href='subelemento.html?id={{identificador}}';" style="cursor: pointer;">
                 <a class="equipo"><img src="{{escudo}}"/> {{nombreEquipo}}</a> 
                 <a class="trofeo"><img src="Trofeo.png" /> {{titulos}} </a> 
             </div>
-            
         </div>
-       {{/equipos}}
-
-       
+        {{/solitario}} 
+            
     </div>
 
     <div class="container4">
