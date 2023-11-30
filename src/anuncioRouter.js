@@ -18,6 +18,22 @@ function validEntry(nombre,edad,valor){
     }
     return 0
 }
+
+function check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo){
+    let creacionNum = parseInt(fCreacion);
+    let titulosNum = parseInt(titulos);
+    if(escudo=="" || nombreEquipo=="" || fCreacion=="" || titulos =="" || estadio =="" || estilo== ""){
+        return 1
+    }
+    else if(isNaN(creacionNum) || !Number.isInteger(creacionNum) || creacionNum < 0 || creacionNum > 2024){
+        return 2
+    }
+    else if (isNaN(titulosNum) || !Number.isInteger(titulosNum) || titulosNum < 0){
+        return 3
+    }
+    return 0
+}
+
 router.get('/', (req, res) => {
     
     let [col1,col2,solitario] = boardService.getColumnas();
@@ -76,9 +92,25 @@ router.post("/nuevoSub",(req, res) => {
 });
 
 router.post("/subelemento/new",(req,res) => {
-    let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, subElementos } = req.body;
-    boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, subElementos });
-    res.render("savedTeam");
+    let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo } = req.body;
+    let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
+    let mensaje = "";
+    if (flag == 0){
+    boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo });
+    mensaje = "Equipo creado correctamente."
+    }
+    else  if(flag==1){
+        mensaje="Rellene todos los campos."
+    }
+    else if(flag==2){
+        mensaje="El año de creación debe ser un número entero positivo y no superior a 2024."
+    }
+    else{
+        mensaje="El número de títulos debe ser un número entero positivo."
+    }
+    res.render('savedTeam', { 
+        mensaje: mensaje
+    });
 });
 
 router.post("/borrar",(req, res) => {
