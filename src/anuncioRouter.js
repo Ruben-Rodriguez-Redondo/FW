@@ -63,7 +63,7 @@ router.post("/nuevoSub",(req, res) => {
     //añadir un nuevo jugador al subelemento correspondiente
     let flag = validEntry(req.body.name,req.body.age,req.body.value)
     if(flag==0){
-        mensaje="Se a actualizado la pagina"
+        mensaje="Se ha actualizado la pagina"
         id = parseInt(req.body.id)
         let nuevoSubElemento = {
             nombre : req.body.name,
@@ -92,11 +92,11 @@ router.post("/nuevoSub",(req, res) => {
 });
 
 router.post("/subelemento/new",(req,res) => {
-    let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo } = req.body;
+    let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion } = req.body;
     let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
     let mensaje = "";
     if (flag == 0){
-    boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo });
+    boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion });
     mensaje = "Equipo creado correctamente."
     }
     else  if(flag==1){

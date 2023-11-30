@@ -46,6 +46,7 @@ function cargarElemento(id){
     let stadium; 
     let style;
     let sub;
+    let champion;
     switch (id) {
         case 0:
           //real madrid
@@ -57,6 +58,7 @@ function cargarElemento(id){
           ntitulos = 14
           stadium = "Santiago Bernabeu"
           style = "Ofensivo"
+          champion = "Sí"
           sub=cargarSubElementos(id)
           break;
         case 1:
@@ -68,6 +70,7 @@ function cargarElemento(id){
             ntitulos = 7
             stadium = "San Siro"
             style = "Catenaccio"
+            champion = "Sí"
             sub=cargarSubElementos(id)
             break;
         case 2:
@@ -79,6 +82,7 @@ function cargarElemento(id){
             ntitulos = 7
             stadium = "San Siro"
             style = "Catenaccio"
+            champion = "Sí"
             sub=cargarSubElementos(id)
             break;
           
@@ -94,6 +98,7 @@ function cargarElemento(id){
         titulos: ntitulos,
         estadio: stadium,
         estilo: style,
+        champion: champion,
         subElementos: sub,
         identificador:id
     }
@@ -131,6 +136,12 @@ export function addEquipo(equipo) {
         case "5":
             equipo.estilo = "Juego por las bandas";
             break;
+    }
+    if (equipo.champion === undefined){
+        equipo.champion = "No"
+    }
+    else{
+        equipo.champion = "Sí"
     }
     equipos.set(equipo.identificador, equipo);
     nextId++;
