@@ -57,7 +57,6 @@ router.get('/subelemento.html', (req, res) => {
 });
 
 router.post("/nuevoSub",(req, res) => {
-    //falta poner el if de si todo esta correcto
     let mensaje=""
     let id=parseInt(req.body.id)
     //añadir un nuevo jugador al subelemento correspondiente
@@ -127,9 +126,37 @@ router.post("/borrar",(req, res) => {
 
 router.get('/paginaEditar.html', (req, res) => {
     let id = parseInt(req.query.id)
-    res.render('paginaEditar', { 
+    res.render('editarElemento', { 
         equipo: boardService.getEquipo(id),
         id:id
+    });
+});
+
+
+router.post("/subelemento/edit",(req,res) => {
+    console.log(req.body)
+    let { id, escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion } = req.body;
+    let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
+    let mensaje = "";
+    if (flag == 0){
+        console.log(id)
+        equipo = boardService.getEquipo(parseInt(id))
+        console.log(equipo)
+        equipo = { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion }
+    mensaje = "Equipo editado correctamente."
+    }
+    else  if(flag==1){
+        mensaje="Rellene todos los campos."
+    }
+    else if(flag==2){
+        mensaje="El año de creación debe ser un número entero positivo y no superior a 2024."
+    }
+    else{
+        mensaje="El número de títulos debe ser un número entero positivo."
+    }
+    res.render('savedTeam', { 
+        mensaje: mensaje,
+        id: parseInt(id)
     });
 });
 export default router;
