@@ -49,7 +49,6 @@ router.get('/', (req, res) => {
 
 router.get('/subelemento.html', (req, res) => {
     let id = parseInt(req.query.id)
-    
     res.render('subelemento', { 
         equipo: boardService.getEquipo(id),
         id:id
@@ -133,13 +132,14 @@ router.get('/paginaEditar.html', (req, res) => {
 
 
 router.post("/subelemento/edit",(req,res) => {
-    console.log(req.body)
     let { id, escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion } = req.body;
     let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
+    id = parseInt(id)
     let mensaje = "";
     if (flag == 0){
         let equipo = boardService.getEquipo(parseInt(id))   
-        equipo = { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion }
+        let subElementos = equipo.subElementos
+        equipo = { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion, subElementos, id}
         boardService.editEquipo(parseInt(id),equipo)
     mensaje = "Equipo editado correctamente."
     }

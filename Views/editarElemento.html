@@ -19,38 +19,39 @@
         <h2 style="text-align: center">Añadir nuevo equipo</h2>
         <div class="nombre">
             <label for="nombreEquipo">Nombre del equipo:</label>
-            <input type="text" class="form-control" id="nombreEquipo" name="nombreEquipo" value={{equipo.nombreEquipo}}>
+            <input type="text" class="form-control" id="nombreEquipo" name="nombreEquipo" value="{{equipo.nombreEquipo}}">
         </div>
 
         <div class="input-group espacio">
             <span class="input-group-text">Descripción</span>
-            <textarea class="form-control" aria-label="descripcion" name="descripcion" value={{equipo.descripcion}} rows="3"></textarea>
+            <textarea class="form-control" aria-label="descripcion" name="descripcion"  rows="3">{{equipo.descripcion}}</textarea>
         </div>
 
         <div class="row espacio">
             <div class="col-md-4">
                 <label for="estadio" class="form-label">Estadio</label>
-                <input type="text" class="form-control" id="estadio" name="estadio" value={{equipo.estadio}}>
+                <input type="text" class="form-control" id="estadio" name="estadio" value="{{equipo.estadio}}">
             </div>
             <div class="col-md-4">
                 <label for="año" class="form-label">Año de creación</label>
-                <input type="text" class="form-control" id="fCreacion" name="fCreacion" value={{equipo.fCreacion}}>
+                <input type="text" class="form-control" id="fCreacion" name="fCreacion" value="{{equipo.fCreacion}}">
             </div>
             <div class="col-md-4">
                 <label for="titulos" class="form-label">Número de títulos</label>
-                <input type="text" class="form-control" id="titulos" name="titulos" value={{equipo.titulos}}>
+                <input type="text" class="form-control" id="titulos" name="titulos" value="{{equipo.titulos}}">
             </div>
         </div>
 
         <div class="row espacio">
             <div class="Estilo col-md-6 espacio">
                 <select class="selectEstilo" name="estilo" aria-label="Estilo">
-                    <option selected>Estilo de juego</option>
-                    <option value="1">Ofensivo</option>
-                    <option value="2">Defensivo</option>
-                    <option value="3">Posesión</option>
-                    <option value="4">Contraataque</option>
-                    <option value="5">Juego por las bandas</option>
+                    <option value="0" disabled>Estilo de juego</option>
+            <option value="1" {{equipo.estilo === 'Ofensivo' ? 'selected' : ''}}>Ofensivo</option>
+            <option value="2" {{equipo.estilo === 'Defensivo' ? 'selected' : ''}}>Defensivo</option>
+            <option value="3" {{equipo.estilo === 'Posesión' ? 'selected' : ''}}>Posesión</option>
+            <option value="4" {{equipo.estilo === 'Contraataque' ? 'selected' : ''}}>Contraataque</option>
+            <option value="5" {{equipo.estilo === 'Juego por las bandas' ? 'selected' : ''}}>Juego por las bandas</option>
+            <option value="6" {{equipo.estilo === 'Catenaccio' ? 'selected' : ''}}>Catenaccio</option>
                 </select>
             </div>
 
@@ -68,7 +69,7 @@
         
         <div class="input-group mb-3 espacio">
             <span class="input-group-text" id="basic-addon1">Escudo del equipo:</span>
-            <input type="text" class="form-control" name="escudo" value = {{equipo.escudo}} aria-label="escudo" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" name="escudo" value = "{{equipo.escudo}}" aria-label="escudo" aria-describedby="basic-addon1">
         </div>
         <div class="row align-items-center">
             <div class="guardar col-md-6 text-center">

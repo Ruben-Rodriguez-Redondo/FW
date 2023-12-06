@@ -76,9 +76,9 @@ function cargarElemento(id){
         case 2:
             foto = "Ajax.png",
             nom = "Ajax";
-            desc = "Descripción del milan";
+            desc = "Descripción del Ajax";
             year = 1922
-            value = 991
+            value = 200000000
             ntitulos = 7
             stadium = "San Siro"
             style = "Catenaccio"
@@ -149,7 +149,7 @@ export function addEquipo(equipo) {
 
 export function editEquipo(id,equipo) {
     //let id = nextId;
-    equipo.identificador = nextId;
+    equipo.identificador = id;
     //equipo.id = id.toString();
     switch(equipo.estilo){
         case "1":
@@ -166,6 +166,9 @@ export function editEquipo(id,equipo) {
             break;
         case "5":
             equipo.estilo = "Juego por las bandas";
+            break;
+        case "6":
+            equipo.estilo = "Catenaccio";
             break;
     }
     if (equipo.champion === undefined){
