@@ -147,6 +147,36 @@ export function addEquipo(equipo) {
     nextId++;
 }
 
+export function editEquipo(id,equipo) {
+    //let id = nextId;
+    equipo.identificador = nextId;
+    //equipo.id = id.toString();
+    switch(equipo.estilo){
+        case "1":
+            equipo.estilo = "Ofensivo";
+            break;
+        case "2":
+            equipo.estilo = "Defensivo";
+            break;
+        case "3":
+            equipo.estilo = "Posesión";
+            break;
+        case "4":
+            equipo.estilo = "Contraataque";
+            break;
+        case "5":
+            equipo.estilo = "Juego por las bandas";
+            break;
+    }
+    if (equipo.champion === undefined){
+        equipo.champion = "No"
+    }
+    else{
+        equipo.champion = "Sí"
+    }
+    equipos.set(id, equipo);
+}
+
 export function deleteEquipo(id){
     equipos.delete(id);
 }

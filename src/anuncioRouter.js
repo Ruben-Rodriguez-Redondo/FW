@@ -71,7 +71,6 @@ router.post("/nuevoSub",(req, res) => {
         }
     
         let elemento=boardService.getEquipo(id)
-        console.log(elemento)
         elemento.subElementos[elemento.subElementos.length] = nuevoSubElemento
     }
     else  if(flag==1){
@@ -139,10 +138,9 @@ router.post("/subelemento/edit",(req,res) => {
     let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
     let mensaje = "";
     if (flag == 0){
-        console.log(id)
-        equipo = boardService.getEquipo(parseInt(id))
-        console.log(equipo)
+        let equipo = boardService.getEquipo(parseInt(id))   
         equipo = { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion }
+        boardService.editEquipo(parseInt(id),equipo)
     mensaje = "Equipo editado correctamente."
     }
     else  if(flag==1){
@@ -154,7 +152,7 @@ router.post("/subelemento/edit",(req,res) => {
     else{
         mensaje="El número de títulos debe ser un número entero positivo."
     }
-    res.render('savedTeam', { 
+    res.render('editedTeam', { 
         mensaje: mensaje,
         id: parseInt(id)
     });
