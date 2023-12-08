@@ -1,6 +1,6 @@
 const equipos = new Map();
 let nextId = 0;
-const numEquiposInicial = 3;
+const numEquiposInicial = 5;
 function cargarSubElementos(id){
     let dev  = []
     let noms = []
@@ -13,15 +13,28 @@ function cargarSubElementos(id){
             values = [45,18,5,70,40]
             break; 
         case 1:
-            noms = ["Thibaut Courtois", "Kepa Arrizabalaga", "Andriy Lunin", "Éder Militao", "Dávid Alaba"] 
-            ages = [31,29,24,25,31]
-            values = [45,18,5,70,40]
+            noms = ["Manuel Neuer", "Daniel Peretz", "Sven Ulreich", "TomHülsmann", "Matthijs de Ligt"] 
+            ages = [37,23,35,19,24]
+            values = [5,5,0.7,0.25,70]
             break;
         case 2:
             noms = ["Thibaut Courtois", "Kepa Arrizabalaga", "Andriy Lunin", "Éder Militao", "Dávid Alaba"] 
             ages = [31,29,24,25,31]
             values = [45,18,5,70,40]
-            break;        
+            break; 
+            
+            case 3:
+                noms = ["Manuel Neuer", "Daniel Peretz", "Sven Ulreich", "TomHülsmann", "Matthijs de Ligt"] 
+            ages = [37,23,35,19,24]
+            values = [5,5,0.7,0.25,70]
+                break;   
+                
+                case 4:
+                    noms = ["Alisson", "Caoimhím Kelleher", "Adrián", "Ibrahima Konaté", "Virgil Van Dijk"] 
+                    ages = [31,25,36,24,32]
+                    values = [35,15,0.8,38,35]
+                    break;             
+    
         default:
           console.log("Opción no reconocida");
     }
@@ -85,7 +98,32 @@ function cargarElemento(id){
             champion = "Sí"
             sub=cargarSubElementos(id)
             break;
+        
+            case 3:
+                foto = "BayernM.png",
+                nom = "Bayern de Munich";
+                desc = "Descripción del Bayern";
+                year = 1900
+                value = 948150000
+                ntitulos = 63
+                stadium = "Alianz Arena"
+                style = "Ofensivo"
+                champion = "Sí"
+                sub=cargarSubElementos(id)
+                break;
           
+                case 4:
+                    foto = "Liverpool.png",
+                    nom = "Liverpool";
+                    desc = "Descripción del Liverpool";
+                    year = 1847
+                    value = 887550000
+                    ntitulos = 68
+                    stadium = "Anfield"
+                    style = "Ofensivo"
+                    champion = "Sí"
+                    sub=cargarSubElementos(id)
+                    break;            
         default:
           console.log("Opción no reconocida");
     }
