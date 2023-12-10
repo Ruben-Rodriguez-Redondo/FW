@@ -13,14 +13,14 @@ function cargarSubElementos(id){
             values = [45,18,5,70,40]
             break; 
         case 1:
-            noms = ["Manuel Neuer", "Daniel Peretz", "Sven Ulreich", "TomHülsmann", "Matthijs de Ligt"] 
-            ages = [37,23,35,19,24]
-            values = [5,5,0.7,0.25,70]
+            noms = ["Mike Maignan", "Theo Hernández", "Fikayo Tomori", "Tijani Reijnders", "Rafael Leao"] 
+            ages = [28,26,25,25,24]
+            values = [30,70,60,35,80]
             break;
         case 2:
-            noms = ["Thibaut Courtois", "Kepa Arrizabalaga", "Andriy Lunin", "Éder Militao", "Dávid Alaba"] 
-            ages = [31,29,24,25,31]
-            values = [45,18,5,70,40]
+            noms = ["Gerónimo Rulli", "Jorrel Hato", "Steven Berghuis", "Bergwijn", "Brian Brobbey"] 
+            ages = [31,17,31,26,21]
+            values = [10,40,15,55,30]
             break; 
             
             case 3:
@@ -33,10 +33,13 @@ function cargarSubElementos(id){
                     noms = ["Alisson", "Caoimhím Kelleher", "Adrián", "Ibrahima Konaté", "Virgil Van Dijk"] 
                     ages = [31,25,36,24,32]
                     values = [35,15,0.8,38,35]
-                    break;             
-    
+                    break;   
+                
         default:
-          console.log("Opción no reconocida");
+            noms = []
+            ages = []
+            values = []
+            break;
     }
     for (let i = 0; i < noms.length; i++) {
         let subElemento = {
@@ -105,7 +108,7 @@ function cargarElemento(id){
                 desc = "Descripción del Bayern";
                 year = 1900
                 value = 948150000
-                ntitulos = 63
+                ntitulos = 6
                 stadium = "Alianz Arena"
                 style = "Ofensivo"
                 champion = "Sí"
@@ -118,12 +121,13 @@ function cargarElemento(id){
                     desc = "Descripción del Liverpool";
                     year = 1847
                     value = 887550000
-                    ntitulos = 68
+                    ntitulos = 6
                     stadium = "Anfield"
                     style = "Ofensivo"
                     champion = "Sí"
                     sub=cargarSubElementos(id)
-                    break;            
+                    break;   
+                         
         default:
           console.log("Opción no reconocida");
     }
@@ -181,6 +185,7 @@ export function addEquipo(equipo) {
     else{
         equipo.champion = "Sí"
     }
+    equipo.subElementos = cargarSubElementos(equipo.identificador);
     equipos.set(equipo.identificador, equipo);
     nextId++;
 }

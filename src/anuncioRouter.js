@@ -19,6 +19,11 @@ function validEntry(nombre,edad,valor){
     return 0
 }
 
+function URLValido(url){
+    const urlTipo = /^(https?:\/\/)?[\w.-]+\.[a-zA-Z]{2,}(\/\S*)?$/;
+    return urlTipo.test(url);
+}
+
 function check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo){
     let creacionNum = parseInt(fCreacion);
     let titulosNum = parseInt(titulos);
@@ -30,6 +35,9 @@ function check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo){
     }
     else if (isNaN(titulosNum) || !Number.isInteger(titulosNum) || titulosNum < 0){
         return 3
+    }
+    else if (!URLValido(escudo)){
+        return 4
     }
     return 0
 }
@@ -89,11 +97,11 @@ router.post("/nuevoSub",(req, res) => {
 });
 
 router.post("/subelemento/new",(req,res) => {
-    let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion } = req.body;
+    let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion, subElementos,id } = req.body;
     let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
     let mensaje = "";
     if (flag == 0){
-    boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion });
+    boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion, subElementos,id });
     mensaje = "Equipo creado correctamente."
     }
     else  if(flag==1){
@@ -102,8 +110,11 @@ router.post("/subelemento/new",(req,res) => {
     else if(flag==2){
         mensaje="El año de creación debe ser un número entero positivo y no superior a 2024."
     }
-    else{
+    else if(flag==3){
         mensaje="El número de títulos debe ser un número entero positivo."
+    }
+    else{
+        mensaje="Introduzca una URL válida para la foto del escudo."
     }
     res.render('savedTeam', { 
         mensaje: mensaje
