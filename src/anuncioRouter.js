@@ -96,7 +96,7 @@ router.post("/nuevoSub",(req, res) => {
     });
 });
 
-router.post("/subelemento/new",(req,res) => {
+router.post("/new",(req,res) => {
     let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion, subElementos,id } = req.body;
     let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
     let mensaje = "";
@@ -142,7 +142,7 @@ router.get('/paginaEditar.html', (req, res) => {
 });
 
 
-router.post("/subelemento/edit",(req,res) => {
+router.post("/edit",(req,res) => {
     let { id, escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion } = req.body;
     let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
     id = parseInt(id)
