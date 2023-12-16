@@ -4,6 +4,9 @@ import * as boardService from './boardService.js';
 
 const router = express.Router();
 
+
+
+
 function validEntry(nombre,edad,valor){
     let valorNum = parseFloat(valor)
     let edadNum=parseInt(edad)
@@ -43,16 +46,24 @@ function check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo){
 }
 
 router.get('/', (req, res) => {
-    
-    let [col1,col2,solitario] = boardService.getColumnas();
-    res.render('paginaPrincipal', { 
-        col1,
-        col2,
-        solitario
-    
+    res.render('paginaPrincipalAJAX', { 
+       
     });
     
    
+});
+
+router.get('/datos-iniciales', (req, res) => {
+    const from = parseInt(req.query.from);
+    const to = parseInt(req.query.to);
+    // Aquí puedes realizar cualquier lógica para obtener los datos iniciales
+    // Puedes usar una base de datos, archivos, o cualquier otro método.
+    const datosIniciales = {
+      elementos: boardService.iniciales(from,to),
+      // Otros datos
+    };
+  
+    res.json(datosIniciales);
 });
 
 router.get('/subelemento.html', (req, res) => {

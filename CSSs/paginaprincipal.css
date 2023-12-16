@@ -110,3 +110,33 @@ body {
     margin-top: 20px;
     text-align: center;
   }
+
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #d4d4d4;
+
+    width: 70%;
+    height: auto;
+    margin: auto; 
+    
+
+    padding: 20px;
+    align-self: center;
+    
+    min-width: fit-content;
+    
+  
+   justify-content: center;
+   
+   
+  }
+
+  .col-md-6 {
+   width: 50%;
+   flex: 0 0 auto;
+    min-width: 150px; /* Cada fila ocupa la mitad del contenedor */
+    box-sizing: border-box;
+    padding: 10px; 
+    
+  }

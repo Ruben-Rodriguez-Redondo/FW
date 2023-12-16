@@ -158,6 +158,7 @@ function cargarDatos(){
 
 
 cargarDatos();
+
 export function addEquipo(equipo) {
     //let id = nextId;
     equipo.identificador = nextId;
@@ -262,4 +263,15 @@ export function getColumnas(){
     if (keys.length % 2 !==0) solitario = getEquipo(keys[keys.length-1]);
 
 return  [col1,col2, solitario];
+}
+
+export function iniciales(from,to){
+    let equiposIniciales = [];
+    let keys = getKeys();
+    for (from; from<to; from++) {
+        equiposIniciales.push(equipos.get(keys[from]));
+       
+    }
+
+    return equiposIniciales;
 }
