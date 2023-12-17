@@ -12,6 +12,7 @@
     <link type="text/css" rel="stylesheet" href="properties.css" />
 
     <script src="formulariosCheck.js"></script>
+    <script src="check.js"></script>
 </head>
 
 <body>
@@ -20,13 +21,15 @@
         <h2 style="text-align: center">Añadir nuevo equipo</h2>
         <div class="nombre">
             <label for="nombreEquipo">Nombre del equipo:</label>
-            <input type="text" oninput= "checkNameAvaliability()" class="form-control" id="nombreEquipo" name="nombreEquipo" placeholder="Introduzca el nombre del equipo">
-            <div id="availabilityMessage" style="color: red; font-size: xx-small; display: inline-block;"></div>
+            <input type="text" oninput= "checkNameAvaliability()" class="form-control" id="nombreEquipo" name="nombreEquipo" placeholder="Introduzca el nombre del equipo" required>
+           <!-- <div id="availabilityMessage" style="color: red; font-size: xx-small; display: inline-block;"></div>-->
+            <div class="invalid-feedback"></div>
         </div>
 
         <div class="input-group espacio">
             <span class="input-group-text">Descripción</span>
-            <textarea class="form-control" aria-label="descripcion" name="descripcion" rows="3"></textarea>
+            <input class="form-control" aria-label="descripcion" name="descripcion" id="descripcion" rows="3" style="height:6em" oninput="checkDescriptionAvaliability()" required>
+            <div class="invalid-feedback"></div>
         </div>
 
         <div class="row espacio">
@@ -36,11 +39,13 @@
             </div>
             <div class="col-md-4">
                 <label for="año" class="form-label">Año de creación</label>
-                <input type="textclass="form-control" id="fCreacion" name="fCreacion">
-            </div>" 
+                <input type="text" oninput="checkfCreacionAvaliability()" class="form-control" id="fCreacion" name="fCreacion">
+                <div class="invalid-feedback"></div>
+            </div>
             <div class="col-md-4">
                 <label for="titulos" class="form-label">Número de títulos</label>
-                <input type="text" class="form-control" id="titulos" name="titulos">
+                <input type="text" oninput="checkTitulosAvaliability()" class="form-control" id="titulos" name="titulos">
+                <div class="invalid-feedback"></div>    
             </div>
         </div>
 
@@ -70,7 +75,8 @@
         
         <div class="input-group mb-3 espacio">
             <span class="input-group-text" id="basic-addon1">Escudo del equipo:</span>
-            <input type="text" class="form-control" name="escudo" placeholder="Introduzca el link del escudo" aria-label="escudo" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" name="escudo" id="escudo" oninput="checkEscudoAvaliability()" placeholder="Introduzca el link del escudo" aria-label="escudo" aria-describedby="basic-addon1" required>
+            <div class="invalid-feedback"></div>
         </div>
         <div class="row align-items-center">
             <div class="guardar col-md-6 text-center">

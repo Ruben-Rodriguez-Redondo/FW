@@ -79,6 +79,68 @@ router.get('/availableUsername', (req, res) => {
     res.json(response);
 });
 
+router.get('/availableDescripcion', (req, res) => {
+    let descripcion = req.query.descripcion;
+    let num = 0
+    if (descripcion.length < 50){
+        num = 1
+    }else if (descripcion.length > 500){
+        num = 2
+    }
+    let response = {
+        flag: num
+    }
+    res.json(response);
+});
+
+router.get('/availableEscudo', (req, res) => {
+    let escudo = req.query.escudo;
+    
+    let response = {
+        available: URLValido(escudo)
+    }
+    res.json(response);
+});
+
+router.get('/availablefCreacion', (req, res) => {
+    let fCreacion = req.query.fCreacion;
+    let num = 0;
+    let año = parseInt(fCreacion);
+    if (isNaN(año)){
+        num = 1
+    }else if (!Number.isInteger(año)){
+        num = 2
+    }else if(año < 0){
+        num = 3
+    }else if(año > 2024){
+        num = 4
+    }
+
+    let response = {
+        flag: num
+    }
+
+    res.json(response);
+});
+
+router.get('/availableTitulos', (req, res) => {
+    let titulos = req.query.titulos;
+    let num = 0;
+    let titulosNum= parseInt(titulos);
+    if (isNaN(titulosNum)){
+        num = 1;
+    } else if (!Number.isInteger(titulosNum)){
+        num = 2
+    }else if (titulosNum < 0){
+        num = 3
+    }
+
+    let response = {
+        flag: num
+    }
+    res.json(response);
+});
+
 router.get('/subelemento.html', (req, res) => {
     let id = parseInt(req.query.id)
     res.render('subelemento', { 
