@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link type="text/css" rel="stylesheet" href="añadirProps.css" />
     <link type="text/css" rel="stylesheet" href="properties.css" />
+
+    <script src="formulariosCheck.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,8 @@
         <h2 style="text-align: center">Añadir nuevo equipo</h2>
         <div class="nombre">
             <label for="nombreEquipo">Nombre del equipo:</label>
-            <input type="text" class="form-control" id="nombreEquipo" name="nombreEquipo" value="{{equipo.nombreEquipo}}">
+            <input type="text" oninput= "checkReNameAvaliability('{{id}}')" class="form-control" id="nombreEquipo" name="nombreEquipo" value="{{equipo.nombreEquipo}}">
+            <div id="availabilityMessage" style="color: red; font-size: xx-small; display: inline-block;"></div>
         </div>
 
         <div class="input-group espacio">

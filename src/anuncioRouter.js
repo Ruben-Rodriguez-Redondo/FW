@@ -68,9 +68,25 @@ router.get('/datos-iniciales', (req, res) => {
 
 router.get('/availableUsername', (req, res) => {
 
-    let username = req.query.username;
+    let username = req.query.username.trim();
 
     let availableUsername = boardService.aNombreEquipos().indexOf(username) === -1;
+
+    let response = {
+        available: availableUsername
+    }
+
+    res.json(response);
+});
+
+router.get('/reAvailableUsername', (req, res) => {
+
+    let username = req.query.username.trim();
+   
+    let id = parseInt(req.query.id);
+    
+    let availableUsername = (boardService.aNombreEquipos().indexOf(username) === -1) 
+                            || (boardService.getEquipo(id).nombreEquipo === username);
 
     let response = {
         available: availableUsername
@@ -149,10 +165,8 @@ router.post("/borrar",(req, res) => {
     
     boardService.deleteEquipo(parseInt(req.body.id))
     let [col1,col2,solitario] = boardService.getColumnas();
-    res.render('paginaPrincipal', { 
-        col1,
-        col2,
-        solitario
+    res.render('paginaPrincipalAJAX', { 
+      
     
     });
 });
