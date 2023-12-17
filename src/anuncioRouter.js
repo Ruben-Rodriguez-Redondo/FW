@@ -66,6 +66,19 @@ router.get('/datos-iniciales', (req, res) => {
     res.json(datosIniciales);
 });
 
+router.get('/availableUsername', (req, res) => {
+
+    let username = req.query.username;
+
+    let availableUsername = boardService.aNombreEquipos().indexOf(username) === -1;
+
+    let response = {
+        available: availableUsername
+    }
+
+    res.json(response);
+});
+
 router.get('/subelemento.html', (req, res) => {
     let id = parseInt(req.query.id)
     res.render('subelemento', { 

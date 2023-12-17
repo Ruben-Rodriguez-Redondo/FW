@@ -237,7 +237,10 @@ export function getEquipos(){
        
     return [...equipos.values()] ;
 }
-
+export function aNombreEquipos(){
+    
+    return Array.from(equipos.values()).map(objeto => objeto.nombreEquipo);
+}
 
 export function getEquipo(id){
     return equipos.get(id);
