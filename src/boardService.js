@@ -266,12 +266,18 @@ return  [col1,col2, solitario];
 }
 
 export function iniciales(from,to){
+    let last = false;
     let equiposIniciales = [];
     let keys = getKeys();
     for (from; from<to; from++) {
+        if (from < keys.length){
         equiposIniciales.push(equipos.get(keys[from]));
+        }
        
     }
+    if (to >= keys.length) {
+        last = true;
 
-    return equiposIniciales;
+    }
+    return [equiposIniciales,last];
 }

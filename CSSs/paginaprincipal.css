@@ -110,7 +110,19 @@ body {
     margin-top: 20px;
     text-align: center;
   }
+.loadMore{
+   /* Ejemplo de estilos para el contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    background-color: #7e7e7e; /* Color de fondo para el contenedor */
+    padding: 20px; /* Relleno dentro del contenedor */
+    min-width: fit-content;
+    text-align: center;
+}
 
+.botonCargarMas{
+  background-color: #d4d4d4;
+  border-radius: 10px;
+}
   .contenedor {
     display: flex;
     flex-wrap: wrap;
