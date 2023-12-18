@@ -284,3 +284,16 @@ export function iniciales(from,to){
     }
     return [equiposIniciales,last];
 }
+
+export function busqueda(buscar){
+    let aEquipos = getEquipos();
+     let matches = [];
+    for (let i = 0; i < aEquipos.length; i++) {
+        let textoElemento = aEquipos[i].nombreEquipo.toLowerCase();
+        if (textoElemento.includes(buscar)){
+            matches.push(aEquipos[i])
+        }
+        
+    }
+    return matches;
+}

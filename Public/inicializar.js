@@ -1,11 +1,11 @@
 const INI = 3;
 const imgTrofeo = 'Trofeo.png';
-let loadMore = 1;
+let loadMore = 0;
   // Función asincrónica para realizar la solicitud Fetch y actualizar la página
   async function cargarDatosIniciales() {
     try {
-        const from = (loadMore-1)*INI;
-        const to = loadMore*INI;
+        const from = (loadMore)*INI;
+        const to = (loadMore+1)*INI;
       // Realizar la solicitud Fetch al servidor
       const response = await fetch(`/datos-iniciales?from=${from}&to=${to}`);
 
@@ -21,7 +21,7 @@ let loadMore = 1;
       let ultimo = data.elementos[1];
       
       let masInfoElement = document.getElementById("contenedorCargarMas");
-      let display = masInfoElement.style.display;
+    
       if (!ultimo) {
           masInfoElement.style.display = "block";
       } else {
@@ -82,7 +82,37 @@ let loadMore = 1;
 
   }
 
+  document.getElementById('barraBusqueda').addEventListener('input', async function () {
+    const buscar = this.value.trim().toLowerCase();
+    var contenedor = document.getElementById("contenido-principal");
+    contenedor.innerHTML = '';
+    if (buscar){
+    const response = await fetch(`/busqueda?buscar=${buscar}`);
 
+    const responseObj = await response.json();
+
+    elementos = responseObj.elementos; //Tiene los equipos que contienes buscar
+
+    
+   
+  
+    agregarElementosAlContenidoPrincipal(elementos);}
+    else {
+      let aux = loadMore;
+      loadMore = 0; 
+      
+      await cargarDatosInicialesRecursive(aux);
+
+      
+
+    }
+});
+async function cargarDatosInicialesRecursive(aux) {
+  if (aux > 0) {
+      await cargarDatosIniciales();
+      await cargarDatosInicialesRecursive(aux - 1);
+  }
+}
 
   // Llamar a la función para cargar los datos iniciales cuando la página se carga
   window.onload = cargarDatosIniciales;

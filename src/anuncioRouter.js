@@ -65,7 +65,18 @@ router.get('/datos-iniciales', (req, res) => {
   
     res.json(datosIniciales);
 });
-
+router.get('/busqueda', (req, res) => {
+    const buscar= req.query.buscar;
+   
+    // Aquí puedes realizar cualquier lógica para obtener los datos iniciales
+    // Puedes usar una base de datos, archivos, o cualquier otro método.
+    const matches= {
+      elementos: boardService.busqueda(buscar),
+      // Otros datos
+    };
+  
+    res.json(matches);
+});
 router.get('/availableUsername', (req, res) => {
 
     let username = req.query.username.trim();

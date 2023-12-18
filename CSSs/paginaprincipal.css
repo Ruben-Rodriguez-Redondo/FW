@@ -31,6 +31,22 @@ body {
     align-self: center;
     
   }
+
+  .barraBusqueda{   
+   
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .barraBusqueda input[type="text"] {
+    width: fit-content; /* Ocupar todo el ancho disponible */
+    outline-style: none;
+  
+    background-color:#d4d4d4; /* Borde para el campo de entrada */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+
   .container3{
     width: 70%; /* Ejemplo de estilos para el contenedor */
     height: auto;
