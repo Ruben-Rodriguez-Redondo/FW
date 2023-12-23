@@ -20,6 +20,7 @@
     
 
       </style>
+      <script src="jugadores.js"></script>
 </head>
 
 <body>
@@ -86,31 +87,26 @@
               </div>
         </div>
     </div>
-    <div class="container mt-5">
+    <div class="container mt-5" id="contentJ">
 
-        <h2>Jugadores</h2>
-
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Valor de mercado</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#equipo.subElementos}}
-                <tr>
-                    <td>{{nombre}}</td>
-                    <td>{{edad}}</td>
-                    <td>{{valor}} Millones</td>
-                </tr>
-                {{/equipo.subElementos}}
-                </tr>
-            </tbody>
-        </table>
+        
        
     </div>
+    <input type="hidden" id="hiddenId" value="{{id}}">
+    <script>
+        const id = document.getElementById("hiddenId").value;
+        loadJugadores(id);
+    </script>
+
+
+
+
+
+
+
+
+
+    
     <div class="container2 mt-5 mb-5">
         <h4 style="text-align: center">Añadir jugador</h2>
             <form action="/nuevoSub" method="post">

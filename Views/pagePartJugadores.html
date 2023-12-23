@@ -1,0 +1,21 @@
+<h2>Jugadores</h2>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Valor de mercado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#equipo.subElementos}}
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>{{edad}}</td>
+                    <td>{{valor}} Millones</td>
+                </tr>
+                {{/equipo.subElementos}}
+                </tr>
+            </tbody>
+        </table>

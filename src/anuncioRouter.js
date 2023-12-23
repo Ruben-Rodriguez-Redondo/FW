@@ -279,4 +279,20 @@ router.post("/edit",(req,res) => {
         id: parseInt(id)
     });
 });
+
+
+router.get('/pagePartJ', (req, res) => {
+    let id = parseInt(req.query.id)
+    res.render('pagePartJugadores.html', { 
+        equipo: boardService.getEquipo(id),
+        id:id
+    });
+});
+
+
+
+
+
+
+
 export default router;
