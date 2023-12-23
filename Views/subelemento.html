@@ -109,7 +109,7 @@
     
     <div class="container2 mt-5 mb-5">
         <h4 style="text-align: center">Añadir jugador</h2>
-            <form action="/nuevoSub" method="post">
+            
                 <div class="input-group espacio">
                     <div class="input-group espacio">
                         <span class="input-group-text">Introduzca los atributos</span>
@@ -121,11 +121,13 @@
                 <div id="checkMessage" style="color: red; font-size: xx-small; display: inline-block;"></div>
             <div class = "row align-items-center mt-2">
                 <div class="guardar col-md-6 text-center">
-                    <button class="btn3 btn-primary" type="submit"> Guardar</button>
+                    <input type="hidden" id="hiddenId" value="{{id}}">
+                    <button class="btn3 btn-primary" type="submit" onclick="addJugador(document.getElementById('hiddenId').value)"> Guardar </button>
                 </div>
+                <div id="checkMessage2" style="color: red; font-size: xx-small; display: inline-block;"></div>
                 
             </div>
-        </form>
+        
         </div>
 </body>
 

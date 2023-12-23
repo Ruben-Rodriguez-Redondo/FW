@@ -177,36 +177,20 @@ router.get('/subelemento.html', (req, res) => {
 });
 
 router.post("/nuevoSub",(req, res) => {
-    let mensaje=""
     let id=parseInt(req.body.id)
+    let nuevoSubElemento = req.body.NuevoJugador
+    console.log()
     //añadir un nuevo jugador al subelemento correspondiente
-    let flag = validEntry(req.body.name,req.body.age,req.body.value)
-    if(flag==0){
-        mensaje="Se ha actualizado la pagina"
-        id = parseInt(req.body.id)
-        let nuevoSubElemento = {
-            nombre : req.body.name,
-            edad : req.body.age,
-            valor : req.body.value,
-        }
-    
+ 
         let elemento=boardService.getEquipo(id)
+        console.log(elemento)    
         elemento.subElementos[elemento.subElementos.length] = nuevoSubElemento
-    }
-    else  if(flag==1){
-        mensaje="Rellene todos los campos"
-    }
-    else if(flag==2){
-        mensaje="El valor debe ser un número"
-    }
-    else{
-        mensaje="La edad debe ser un número entero"
-    }
+        let response = {
+            value:1
+        }
+        console.log(elemento)  
+        res.json(response);
     
-    res.render('paginaIntermedia', { 
-        id : id,
-        mensaje: mensaje
-    });
 });
 
 router.post("/new",(req,res) => {
