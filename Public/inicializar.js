@@ -4,18 +4,27 @@ let loadMore = 0;
 
 async function initElementos(busqueda){
   loadMore = 0
-  console.log(busqueda)
   if (busqueda==null) busqueda = ""
   const response = await fetch(`/datos-iniciales?bus=${busqueda}`); //Pedir al servidor la lista de equipos basandonos en la búsqueda
   let data = await response.json()
+  let flag = false
   let elementos = data //procesar response para obtener el array de elementos
+  if(elementos.elementos.length<=INI) flag = true //si no hay mas elementos que mostrar
   elementos = elementos.elementos.slice(0,(loadMore+1)*INI)
   var contenedor = document.getElementById("contenido-principal");
   contenedor.innerHTML = ""
   agregarElementosAlContenidoPrincipal(elementos);
+  let masInfoElement = document.getElementById("contenedorCargarMas");
+  if(!flag) {
+    masInfoElement.style.display = "block";
+  }
+  else{
+    masInfoElement.style.display = "none";
+  }
 }
 
 async function cargarMas(busqueda){
+  let flag = false
   loadMore = loadMore+1
   console.log(busqueda)
   if (busqueda==null) busqueda = ""
@@ -24,10 +33,21 @@ async function cargarMas(busqueda){
   let elementos = data //procesar response para obtener el array de elementos
   elementos = elementos.elementos
   let tope = (loadMore+1)*INI
-  if(tope>elementos.length) tope = elementos.length
+  if(tope>elementos.length) {
+    tope = elementos.length
+    flag = true
+  }
+  if(tope==elementos.length) flag = true
   elementos = elementos.slice(loadMore*INI,tope)
   var contenedor = document.getElementById("contenido-principal");
   agregarElementosAlContenidoPrincipal(elementos)
+  let masInfoElement = document.getElementById("contenedorCargarMas");
+  if(!flag) {
+    masInfoElement.style.display = "block";
+  }
+  else{
+    masInfoElement.style.display = "none";
+  }
 }
 
 
