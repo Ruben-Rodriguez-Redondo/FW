@@ -6,6 +6,7 @@
                     <th>Nombre</th>
                     <th>Edad</th>
                     <th>Valor de mercado</th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>
@@ -14,6 +15,10 @@
                     <td>{{nombre}}</td>
                     <td>{{edad}}</td>
                     <td>{{valor}} Millones</td>
+                    <td class = "columna-borrar">
+                        <img src="papelera.png" alt="Borrar" onclick="deleteJugador('{{id}}', this)" style="cursor: pointer; width: 60%; height: 60%;">
+            </td>
+                    </td>
                 </tr>
                 {{/equipo.subElementos}}
                 </tr>

@@ -273,7 +273,19 @@ router.get('/pagePartJ', (req, res) => {
 
 
 
-
+router.post("/borrarSub",(req, res) => {
+    let id=parseInt(req.body.id)
+    let fila = req.body.fila
+    //añadir un nuevo jugador al subelemento correspondiente
+    
+        let elemento=boardService.getEquipo(id) 
+        elemento.subElementos.splice(fila-1,1)
+        let response = {
+            value:1
+        }
+        res.json(response);
+    
+});
 
 
 

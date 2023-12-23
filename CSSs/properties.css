@@ -42,3 +42,6 @@ img{
     border-style:hidden;
     color: rgb(0, 0, 0);
 }
+.columna-borrar {
+        width: 10%; /* Ajusta el ancho según sea necesario */
+}
