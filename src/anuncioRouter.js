@@ -54,12 +54,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/datos-iniciales', (req, res) => {
-    const from = parseInt(req.query.from);
-    const to = parseInt(req.query.to);
+    const from = 0;
+    const to = boardService.getEquipos.length;
+    let busqueda = req.query.bus
     // Aquí puedes realizar cualquier lógica para obtener los datos iniciales
     // Puedes usar una base de datos, archivos, o cualquier otro método.
     const datosIniciales = {
-      elementos: boardService.iniciales(from,to),
+      elementos: boardService.busqueda(busqueda),
       // Otros datos
     };
   

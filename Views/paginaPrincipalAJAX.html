@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
     <link type="text/css" rel="stylesheet" href="paginaprincipal.css" />
-    
+    <script src="inicializar.js"></script>
 </head>
 <body>
     <div class ="container ">
@@ -21,18 +21,24 @@
  
    
         <div class="barraBusqueda">
-            <input type="text" id="barraBusqueda" placeholder="Buscar...">
+            <input type="text" oninput= "initElementos(this.value)" id="barraBusqueda" placeholder="Buscar...">
         </div>
     
 
     <div id="contenido-principal" class="contenedor">
-        <script src="inicializar.js"></script>
+        
     </div>
 
     
         <div id ="contenedorCargarMas" class="loadMore">
-            <button class="botonCargarMas" onclick="cargarDatosIniciales()"> LoadMore</button>
+            <button class="botonCargarMas" onclick="cargarMasAux()"> LoadMore</button>
         </div>
+        <script>
+            function cargarMasAux(){
+                let busqueda = document.getElementById("barraBusqueda").value;
+                cargarMas(busqueda);
+            }
+        </script>
     
     <div class="container4">
         <div class="botonCrear">
@@ -42,5 +48,10 @@
         </div>
     </div>
   
+    <script>
+        const busqueda = document.getElementById("barraBusqueda").value;
+        initElementos(busqueda);
+    </script>
+
 </body>
 </html>
