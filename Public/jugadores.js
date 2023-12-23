@@ -39,3 +39,36 @@ async function deleteJugador(id){
     content.innerHTML += pagePart;
 
 }
+
+async function checkName(){
+    let usernameInput = document.getElementById('nombreJ');
+    let nombre = usernameInput.value;
+    let message = ""
+    if (nombre == ""){
+        message = "Ese nombre no es válido"
+    }
+    const content = document.getElementById("checkMessage");
+    content.innerHTML = message;
+}
+
+async function checkAge(){
+    let usernameInput = document.getElementById('edadJ');
+    let edad = usernameInput.value;
+    let message = ""
+    if (edad == "" || isNaN(edad)){
+        message = "La edad introducida no es valida"
+    }
+    const content = document.getElementById("checkMessage");
+    content.innerHTML = message;
+}
+
+async function checkValue(){
+    let usernameInput = document.getElementById('valorJ');
+    let valor = usernameInput.value;
+    let message = ""
+    if (valor == "" || isNaN(valor) || typeof valor !=='number'){
+        message = "El valor introducido no es valido"
+    }
+    const content = document.getElementById("checkMessage");
+    content.innerHTML = message;
+}

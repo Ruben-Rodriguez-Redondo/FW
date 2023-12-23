@@ -113,11 +113,12 @@
                 <div class="input-group espacio">
                     <div class="input-group espacio">
                         <span class="input-group-text">Introduzca los atributos</span>
-                        <input type="text" aria-label="First name" class="form-control" placeholder="Nombre" name="name">
-                        <input type="text" aria-label="Last name" class="form-control" placeholder="Edad" name = "age">
-                        <input type="text" aria-label="a" class="form-control" placeholder="Valor" name="value">
+                        <input type="text" oninput= "checkName()" aria-label="First name" class="form-control" placeholder="Nombre" id="nombreJ" name="name">
+                        <input type="text" oninput= "checkAge()" aria-label="Last name" class="form-control" placeholder="Edad" id="edadJ" name = "age">
+                        <input type="text" oninput= "checkValue()" aria-label="a" class="form-control" placeholder="Valor" id="valorJ" name="value">
                         <input type="hidden" name="id" value={{id}}>
                 </div>
+                <div id="checkMessage" style="color: red; font-size: xx-small; display: inline-block;"></div>
             <div class = "row align-items-center mt-2">
                 <div class="guardar col-md-6 text-center">
                     <button class="btn3 btn-primary" type="submit"> Guardar</button>
