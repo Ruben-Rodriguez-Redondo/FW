@@ -182,13 +182,11 @@ router.post("/nuevoSub",(req, res) => {
     console.log()
     //añadir un nuevo jugador al subelemento correspondiente
  
-        let elemento=boardService.getEquipo(id)
-        console.log(elemento)    
+        let elemento=boardService.getEquipo(id) 
         elemento.subElementos[elemento.subElementos.length] = nuevoSubElemento
         let response = {
             value:1
         }
-        console.log(elemento)  
         res.json(response);
     
 });
