@@ -95,7 +95,7 @@ async function checkAge(){
     let edad = usernameInput.value;
     let message = ""
     if (edad == "" || isNaN(edad)){
-        message = "La edad introducida no es valida"
+        message = "La edad introducida debe se un número entero"
     }
     const content = document.getElementById("checkMessage");
     content.innerHTML = message;
@@ -106,7 +106,7 @@ async function checkValue(){
     let valor = usernameInput.value;
     let message = ""
     if (valor == "" || isNaN(valor)){
-        message = "El valor introducido no es valido"
+        message = "El valor debe ser un número"
     }
     const content = document.getElementById("checkMessage");
     content.innerHTML = message;
