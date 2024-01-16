@@ -30,19 +30,58 @@ function URLValido(url){
 function check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo){
     let creacionNum = parseInt(fCreacion);
     let titulosNum = parseInt(titulos);
+    let checkeo = 0;
     if(escudo=="" || nombreEquipo=="" || fCreacion=="" || titulos =="" || estadio =="" || estilo== ""){
-        return 1
+        checkeo = 1;
     }
     else if(isNaN(creacionNum) || !Number.isInteger(creacionNum) || creacionNum < 0 || creacionNum > 2024){
-        return 2
+        checkeo = 2
     }
     else if (isNaN(titulosNum) || !Number.isInteger(titulosNum) || titulosNum < 0){
-        return 3
+        checkeo = 3
     }
     else if (!URLValido(escudo)){
-        return 4
+        checkeo = 4
     }
-    return 0
+    let checkedTrue = [];
+    if (checkeo == 0){
+        return checkedTrue;
+    }else{
+        let array = [escudo,nombreEquipo,fCreacion,titulos,estadio,estilo];
+        let arrayString = ["escudo","nombre del equipo","fecha de creación", "títulos","estadio","estilo"];
+        let vacios = [];
+        for (let i=0;i<array.length;i++){
+            if (array[i] == ""){
+                vacios.push(arrayString[i]);
+            }
+        }
+        let creacion;
+        if (isNaN(creacionNum)){
+            creacion = 1;
+        }else if(!Number.isInteger(creacionNum)){
+            creacion = 2;
+        }else if(creacionNum < 0){
+            creacion = 3
+        }else if(creacionNum > 2024){
+            creacion = 4
+        }
+        let tit ;
+        if (isNaN(titulosNum)){
+            tit = 1;
+        }else if(!Number.isInteger(titulosNum)){
+            tit = 2;
+        }else if(titulosNum < 0){
+            tit = 3;
+        }
+        let esc;
+        if(!URLValido(escudo)){
+            esc = 0;
+        }else{
+            esc = 1;
+        }
+        let checked = [vacios,creacion,tit,esc];
+        return checked;
+    };
 }
 
 router.get('/', (req, res) => {
@@ -194,9 +233,40 @@ router.post("/nuevoSub",(req, res) => {
 
 router.post("/new",(req,res) => {
     let { escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo,champion, subElementos,id } = req.body;
-    let flag = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
-    let mensaje = "";
-    if (flag == 0){
+    let checked = check(escudo, nombreEquipo, fCreacion, titulos, estadio, estilo);
+    var mensaje = "";
+    if(checked.length < 2){
+        boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion, subElementos,id });
+        mensaje = "Equipo creado correctamente."
+    }else{
+        let mensajes=[];
+        for (let i=0; i<checked[0].length;i++){
+            var m1 = "El campo " + JSON.stringify(checked[0][i]) + " no puede estar vacío.";
+            mensajes.push(m1);
+        }
+        if (checked[1] == 1){
+            mensajes.push('La fecha de creación tiene que ser un número.');
+        } else if (checked[1] == 2){
+            mensajes.push('La fecha de creación tiene que ser un número entero.');
+        }else if (checked[1] == 3){
+            mensajes.push('La fecha de creación tiene que ser un número entero positivo.');
+        }else if(checked[1] == 4){
+            mensajes.push('La fecha de creación tiene que ser menor que 2024.');
+        }
+        if (checked[2] == 1){
+            mensajes.push('El número de títulos tiene que ser un número.');
+        }else if (checked[2] == 2){
+            mensajes.push('El número de títulos tiene que ser un número entero.');
+        }else if (checked[2] == 3){
+            mensajes.push('El número de títulos tiene que ser un número entero positivo.');
+        }
+        if (checked[3] == 0){
+            mensajes.push('Introduzca una URL válida para la foto del escudo.')
+        }
+        mensaje = mensajes.join(" ");
+    }
+    //Antiguo código para mostrar los mensajes de error. Actualizado para mostrar todos los errores.
+    /*if (flag == 0){
     boardService.addEquipo({ escudo, nombreEquipo, descripcion, fCreacion, valor,titulos, estadio, estilo, champion, subElementos,id });
     mensaje = "Equipo creado correctamente."
     }
@@ -211,7 +281,7 @@ router.post("/new",(req,res) => {
     }
     else{
         mensaje="Introduzca una URL válida para la foto del escudo."
-    }
+    }*/
     res.render('savedTeam', { 
         mensaje: mensaje
     });
