@@ -286,11 +286,12 @@ export function iniciales(from,to){
 }
 
 export function busqueda(buscar){
+    
     let aEquipos = getEquipos();
      let matches = [];
     for (let i = 0; i < aEquipos.length; i++) {
         let textoElemento = aEquipos[i].nombreEquipo.toLowerCase();
-        if (textoElemento.includes(buscar)){
+        if (textoElemento.includes(buscar.toLowerCase())){
             matches.push(aEquipos[i])
         }
         
